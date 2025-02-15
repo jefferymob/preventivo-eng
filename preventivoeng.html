@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Wellness Package - Trilussa Palace Hotel</title>
+  <style>
+    /* Stili ridotti per brevità; puoi copiare i tuoi */
+    html, body {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      font-family: sans-serif;
+      background: #f2efed;
+    }
+    .price-bar { position: fixed; top: 0; left: 0; width: 100%; background: #8D6E63; color: #fff; font-weight: 700; text-align: center; padding: 12px; }
+    .container { width: 95%; max-width: 600px; margin: 60px auto; }
+    .step { display: none; background: #fff; margin-bottom: 15px; padding: 10px; }
+    .step.active { display: block; }
+    /* ... Altri stili come vuoi ... */
+  </style>
+</head>
+<body>
+  <div class="price-bar">
+    Total: <span id="totalPrice">0</span>€
+  </div>
+
+  <div class="container">
+    <h1>Quote Simulation</h1>
+    <p>Create and customize your own quote!</p>
+
+    <!-- Cambia l'URL con quello del tuo Web App in inglese -->
+    <form id="wellnessForm" action="YOUR_ENG_WEBAPP_URL" method="POST" target="hiddenFrame">
+      
+      <!-- STEP 1: Choose the Spa -->
+      <div class="step active" id="step-1">
+        <h2>1. Select the Spa</h2>
+        <label>
+          <input type="radio" name="spa" value="SPA MAYA" required />
+          SPA MAYA
+        </label><br />
+        <label>
+          <input type="radio" name="spa" value="SPA MOON" required />
+          SPA MOON
+        </label><br />
+        <label>
+          <input type="radio" name="spa" value="SPA DOMUS" required />
+          SPA DOMUS
+        </label>
+        <button type="button" onclick="showNextStep(1)">Next</button>
+      </div>
+
+      <!-- STEP 2: Time Range con i NUOVI value -->
+      <div class="step" id="step-2">
+        <h2>2. Select the Time Range</h2>
+        <label>
+          <input type="radio" name="time" value="MORNING (07:00-16:00)" required />
+          Morning (07:00-16:00)
+        </label><br />
+        <label>
+          <input type="radio" name="time" value="AFTERNOON (16:00-23:00)" required />
+          Afternoon (16:00-23:00)
+        </label><br />
+        <label>
+          <input type="radio" name="time" value="NIGHT (23:00-07:00)" required />
+          Night (23:00-07:00)
+        </label>
+        <button type="button" onclick="showPreviousStep(2)">Back</button>
+        <button type="button" onclick="showNextStep(2)">Next</button>
+      </div>
+
+      <!-- STEP 3, STEP 4, ecc. => mantieni la stessa logica ... -->
+
+      <!-- Esempio per Durata (identici value: "1h", "1.30h", "2h", "2.30h") -->
+      <div class="step" id="step-4">
+        <h2>4. Choose Duration</h2>
+        <label>
+          <input type="radio" name="duration" value="1h" required />
+          1 Hour
+        </label><br />
+        <label>
+          <input type="radio" name="duration" value="1.30h" required />
+          1.30 Hours
+        </label><br />
+        <label>
+          <input type="radio" name="duration" value="2h" required />
+          2 Hours
+        </label><br />
+        <label>
+          <input type="radio" name="duration" value="2.30h" required />
+          2.30 Hours
+        </label>
+        <button type="button" onclick="showPreviousStep(4)">Back</button>
+        <button type="button" onclick="showNextStep(4)">Next</button>
+      </div>
+
+      <!-- Insert other steps as you prefer (Extras, etc.) -->
+
+      <!-- STEP Finale: email, phone, submit -->
+      <div class="step" id="step-7">
+        <h2>7. Confirm and Submit</h2>
+        <label>Email</label>
+        <input type="email" name="email" required /><br />
+        <label>Phone</label>
+        <input type="tel" name="phone" required pattern="^[0-9]{10,15}$" />
+        
+        <input type="hidden" name="total" id="total" />
+        
+        <button type="button" onclick="showPreviousStep(7)">Back</button>
+        <button type="submit">Submit Request</button>
+      </div>
+    </form>
+
+    <iframe name="hiddenFrame" style="display:none;" onload="onFormLoad()"></iframe>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 7;
+    function showNextStep(step){ /* ... come da tuo JS ... */ }
+    function showPreviousStep(step){ /* ... */ }
+    function onFormLoad(){ /* ... */ }
+  </script>
+</body>
+</html>

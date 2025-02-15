@@ -4,19 +4,12 @@
   <meta charset="UTF-8" />
   <!-- Prevent mobile zoom -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Wellness Package - Trilussa Palace Hotel</title>
-  <meta
-    name="description"
-    content="Request a personalized quote for your wellness package at the Trilussa Palace Hotel. Choose between different private Spa options and extras for a unique relaxation experience."
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>Wellness Package - Trilussa Palace Hotel (ENG)</title>
+  <meta name="description" content="Request a personalized quote for your wellness package at Trilussa Palace Hotel. Choose from different private Spa options and extras for a unique relaxation experience." />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* Same style structure as the Italian version */
     :root {
-      --primary-color: #6D4C41; 
+      --primary-color: #6D4C41;
       --secondary-color: #8D6E63;
       --accent-color: #FFA726;
       --background-color: #f2efed;
@@ -26,60 +19,45 @@
       --button-hover-color: #8D6E63;
       --input-border-color: #cccccc;
       --option-hover-bg: #e0e0e0;
-      --modal-bg: rgba(0, 0, 0, 0.5);
+      --modal-bg: rgba(0,0,0,0.5);
       --spinner-color: #6D4C41;
     }
-
     html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
       font-family: 'Roboto', sans-serif;
       background: var(--background-color);
-      overflow: hidden; /* Prevent overall scrolling */
+      overflow: hidden;
     }
-
-    /* Fixed bar showing total price */
     .price-bar {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       background-color: var(--price-bar-color);
       color: white;
-      padding: 12px 16px; 
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      padding: 12px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       font-size: 1.4rem;
       z-index: 1000;
       font-weight: 700;
       text-align: center;
     }
-
-    /* Main container */
     .container {
-      margin: 60px auto 20px auto; 
-      width: 95%;
-      max-width: 600px;
+      margin: 60px auto 20px auto;
+      width: 95%; max-width: 600px;
       padding: 10px;
       box-sizing: border-box;
       background: var(--background-color);
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
+      display: flex; flex-direction: column; align-items: stretch;
       height: calc(100vh - 80px);
       overflow: hidden;
     }
-
     .container h1 {
       color: var(--primary-color);
       font-size: 1.6rem;
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-weight: 700;
-      text-align: center;
+      margin-top: 0; margin-bottom: 10px;
+      font-weight: 700; text-align: center;
     }
-
     .container p {
       color: var(--text-color);
       font-size: 1rem;
@@ -87,21 +65,17 @@
       text-align: center;
       word-wrap: break-word;
     }
-
-    /* Steps */
     .step {
       width: 100%;
       background: white;
       padding: 15px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 15px;
-      display: none;
-      flex-direction: column;
+      display: none; flex-direction: column;
       overflow-y: auto;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      opacity: 0;
-      transform: translateX(100%);
+      transition: opacity 0.3s, transform 0.3s;
+      opacity: 0; transform: translateX(100%);
     }
     .step.active {
       display: flex;
@@ -109,7 +83,6 @@
       transform: translateX(0);
       z-index: 1;
     }
-
     .step-header {
       margin-bottom: 10px;
     }
@@ -120,95 +93,61 @@
       font-weight: 700;
       text-align: center;
     }
-
-    /* Options */
     .options, .extras, .time-slots {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
+      display: flex; flex-direction: column;
+      gap: 10px; flex: 1;
     }
-
     .option {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      border: 1px solid var(--input-border-color);
-      border-radius: 10px;
-      background: white;
+      display: flex; align-items: center;
+      padding: 10px; border: 1px solid var(--input-border-color);
+      border-radius: 10px; background: white;
       transition: background 0.3s ease, transform 0.3s ease;
-      font-size: 0.9rem;
-      cursor: pointer;
+      font-size: 0.9rem; cursor: pointer;
     }
     .option:hover {
       background: var(--option-hover-bg);
       transform: translateY(-2px);
     }
     .option label {
-      display: flex;
-      align-items: center;
-      flex: 1;
-      font-size: 0.9rem;
-      color: var(--text-color);
-      cursor: pointer;
+      display: flex; align-items: center;
+      flex: 1; font-size: 0.9rem;
+      color: var(--text-color); cursor: pointer;
       word-wrap: break-word;
     }
     .option input {
-      transform: scale(1.2);
-      margin-right: 10px;
+      transform: scale(1.2); margin-right: 10px;
       cursor: pointer;
     }
-
-    /* Small spa images */
-    .spa-image-small {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    /* Navigation buttons */
     .navigation-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-      width: 100%;
+      display: flex; justify-content: space-between;
+      margin-top: 15px; width: 100%;
     }
     .navigation-buttons button {
       background-color: var(--button-color);
       color: black;
       padding: 8px 16px;
       font-size: 0.8rem;
-      border: none;
-      border-radius: 20px;
+      border: none; border-radius: 20px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      flex: 1;
-      margin: 0 5px;
+      transition: background-color 0.3s, transform 0.2s;
+      flex: 1; margin: 0 5px;
     }
     .navigation-buttons button:hover {
       background-color: var(--button-hover-color);
       transform: scale(1.02);
     }
-
-    /* Person selection */
     .person-selection {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 10px;
-      gap: 10px;
+      display: flex; justify-content: space-around;
+      margin-top: 10px; gap: 10px;
     }
     .person-button {
       flex: 1;
       padding: 10px;
       background-color: var(--button-color);
       color: black;
-      border: none;
-      border-radius: 20px;
+      border: none; border-radius: 20px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s, transform 0.2s;
       font-size: 0.9rem;
     }
     .person-button.selected,
@@ -216,8 +155,6 @@
       background-color: var(--button-hover-color);
       transform: scale(1.05);
     }
-
-    /* Overlays, modals, etc. */
     .loading-overlay {
       display: none;
       position: fixed;
@@ -233,15 +170,13 @@
       border: 6px solid #f3f3f3;
       border-top: 6px solid var(--spinner-color);
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       animation: spin 1s linear infinite;
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
     .modal {
       display: none;
       position: fixed;
@@ -259,7 +194,7 @@
       width: 90%; max-width: 300px;
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       position: relative;
     }
     .close-modal {
@@ -273,520 +208,318 @@
       color: black;
       text-decoration: none;
     }
-
-    /* Additional info, etc. (optional) */
   </style>
 </head>
-
 <body>
-  <!-- Fixed price bar -->
   <div class="price-bar">
-    Total: <span id="totalPrice">0</span>€
+    Totale: <span id="totalPrice">0</span>€
   </div>
-
   <div class="container">
-    <h1>Quote Simulation</h1>
-    <p>Create and customize your own quote!</p>
-
-    <!-- 
-      Change action="..." to your new Web App
-      that contains the English doPost(e).
-    -->
-    <form
-      id="wellnessFormEng"
-      action="https://script.google.com/macros/s/AKfycbxuadhEg13RzXwnO44_md9C2qKmtY0f6z2ANSImUOPoflhLb9AYTfBmPYVY7x8oub-WTQ/exec"
-      method="POST"
-      target="hiddenFrame"
-    >
-      <!-- STEP 1: Choose Spa -->
+    <h1>Simulazione Preventivo</h1>
+    <p>Crea e personalizza il tuo preventivo!</p>
+    <!-- Sostituisci "YOUR_ITA_WEBAPP_URL" con l'URL del tuo Web App italiano -->
+    <form id="wellnessForm" action="YOUR_ITA_WEBAPP_URL" method="POST" target="hiddenFrame">
+      <!-- STEP 1: Scegli la Spa -->
       <div class="step active" id="step-1">
         <div class="step-header">
-          <h2>1. Choose the Spa</h2>
+          <h2>1. Scegli la Spa</h2>
         </div>
         <div class="options">
           <div class="option">
             <img src="https://www.trilussapalacehotel.it/data/2560/Hotel-Trilussa-Palace-spa-maya-5456-HDR.jpg" alt="SPA MAYA" class="spa-image-small" />
             <label>
-              <input
-                type="radio"
-                name="spa"
-                value="SPA MAYA"
-                required
-              />
+              <input type="radio" name="spa" value="SPA MAYA" required />
               SPA MAYA
             </label>
           </div>
           <div class="option">
             <img src="https://www.trilussapalacehotel.it/data/2560/Hotel-Trilussa-Palace-spa-moon-3559.jpg" alt="SPA MOON" class="spa-image-small" />
             <label>
-              <input
-                type="radio"
-                name="spa"
-                value="SPA MOON"
-                required
-              />
+              <input type="radio" name="spa" value="SPA MOON" required />
               SPA MOON
             </label>
           </div>
           <div class="option">
             <img src="https://www.trilussapalacehotel.it/data/2560/Hotel-Trilussa-Palace-spa-domus-63.jpg" alt="SPA DOMUS" class="spa-image-small" />
             <label>
-              <input
-                type="radio"
-                name="spa"
-                value="SPA DOMUS"
-                required
-              />
+              <input type="radio" name="spa" value="SPA DOMUS" required />
               SPA DOMUS
             </label>
           </div>
         </div>
         <div class="navigation-buttons">
           <div></div>
-          <button type="button" onclick="showNextStep(1)">Next</button>
+          <button type="button" onclick="showNextStep(1)">Avanti</button>
         </div>
       </div>
-
-      <!-- STEP 2: Time Range (MORNING, AFTERNOON, NIGHT) -->
+      
+      <!-- STEP 2: Scegli la Fascia Oraria -->
       <div class="step" id="step-2">
         <div class="step-header">
-          <h2>2. Choose the Time Range</h2>
+          <h2>2. Scegli la Fascia Oraria</h2>
         </div>
         <div class="options">
           <div class="option">
             <label>
-              <input
-                type="radio"
-                name="time"
-                value="MORNING (07:00-16:00)"
-                required
-              />
-              MORNING (07:00-16:00)
+              <input type="radio" name="time" value="MATTINA (07:00-16:00)" required />
+              MATTINA (07:00-16:00)
             </label>
           </div>
           <div class="option">
             <label>
-              <input
-                type="radio"
-                name="time"
-                value="AFTERNOON (16:00-23:00)"
-                required
-              />
-              AFTERNOON (16:00-23:00)
+              <input type="radio" name="time" value="SERA (16:00-23:00)" required />
+              SERA (16:00-23:00)
             </label>
           </div>
           <div class="option">
             <label>
-              <input
-                type="radio"
-                name="time"
-                value="NIGHT (23:00-07:00)"
-                required
-              />
-              NIGHT (23:00-07:00)
+              <input type="radio" name="time" value="NOTTE (23:00-07:00)" required />
+              NOTTE (23:00-07:00)
             </label>
           </div>
         </div>
         <div class="navigation-buttons">
-          <button type="button" onclick="showPreviousStep(2)">Back</button>
-          <button type="button" onclick="showNextStep(2)">Next</button>
+          <button type="button" onclick="showPreviousStep(2)">Indietro</button>
+          <button type="button" onclick="showNextStep(2)">Avanti</button>
         </div>
       </div>
-
-      <!-- STEP 3: Number of People -->
+      
+      <!-- STEP 3: Scegli il Numero di Persone -->
       <div class="step" id="step-3">
         <div class="step-header">
-          <h2>3. Choose the Number of People</h2>
+          <h2>3. Scegli il Numero di Persone</h2>
         </div>
         <div class="person-selection">
-          <button type="button" class="person-button selected" data-value="2">2 People</button>
-          <button type="button" class="person-button" data-value="3">3 People</button>
-          <button type="button" class="person-button" data-value="4">4 People</button>
+          <button type="button" class="person-button selected" data-value="2">2 Persone</button>
+          <button type="button" class="person-button" data-value="3">3 Persone</button>
+          <button type="button" class="person-button" data-value="4">4 Persone</button>
         </div>
         <input type="hidden" name="persons" id="selectedPersons" value="2" />
         <div class="navigation-buttons">
-          <button type="button" onclick="showPreviousStep(3)">Back</button>
-          <button type="button" onclick="showNextStep(3)">Next</button>
+          <button type="button" onclick="showPreviousStep(3)">Indietro</button>
+          <button type="button" onclick="showNextStep(3)">Avanti</button>
         </div>
       </div>
-
-      <!-- STEP 4: Duration (1h, 1.30h, 2h, 2.30h) -->
+      
+      <!-- STEP 4: Scegli la Durata -->
       <div class="step" id="step-4">
         <div class="step-header">
-          <h2>4. Choose the Duration</h2>
+          <h2>4. Scegli la Durata</h2>
         </div>
         <div class="options">
-          <div class="option">
-            <label>
-              <input
-                type="radio"
-                name="duration"
-                value="1h"
-                required
-              />
-              1 Hour
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="radio"
-                name="duration"
-                value="1.30h"
-                required
-              />
-              1.30 Hours
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="radio"
-                name="duration"
-                value="2h"
-                required
-              />
-              2 Hours
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="radio"
-                name="duration"
-                value="2.30h"
-                required
-              />
-              2.30 Hours
-            </label>
-          </div>
+          <label class="option">
+            <input type="radio" name="duration" value="1h" required />
+            1 Ora
+          </label>
+          <label class="option">
+            <input type="radio" name="duration" value="1.30h" required />
+            1.30 Ore
+          </label>
+          <label class="option">
+            <input type="radio" name="duration" value="2h" required />
+            2 Ore
+          </label>
+          <label class="option">
+            <input type="radio" name="duration" value="2.30h" required />
+            2.30 Ore
+          </label>
         </div>
         <div class="navigation-buttons">
-          <button type="button" onclick="showPreviousStep(4)">Back</button>
-          <button type="button" onclick="showNextStep(4)">Next</button>
+          <button type="button" onclick="showPreviousStep(4)">Indietro</button>
+          <button type="button" onclick="showNextStep(4)">Avanti</button>
         </div>
       </div>
-
-      <!-- STEP 5: Mini Time Slots -->
+      
+      <!-- STEP 5: Mini Fasce Orarie -->
       <div class="step" id="step-5">
         <div class="step-header">
-          <h2>5. Choose Your Preferred Slot</h2>
+          <h2>5. Scegli l'orario</h2>
         </div>
         <div class="time-slots" id="timeSlotsContainer">
-          <!-- Dynamically generated in JS -->
+          <!-- Le opzioni verranno generate dinamicamente tramite JavaScript -->
         </div>
         <div class="navigation-buttons">
-          <button type="button" onclick="showPreviousStep(5)">Back</button>
-          <button type="button" onclick="showNextStep(5)">Next</button>
+          <button type="button" onclick="showPreviousStep(5)">Indietro</button>
+          <button type="button" onclick="showNextStep(5)">Avanti</button>
         </div>
       </div>
-
-      <!-- STEP 6: Extras -->
+      
+      <!-- STEP 6: Scegli gli Extra -->
       <div class="step" id="step-6">
         <div class="step-header">
-          <h2>6. Choose Extras</h2>
+          <h2>6. Scegli gli Extra</h2>
         </div>
         <div class="extras">
-          <!-- Same 'value' as your logic requires (like 2 pinsa romane + Prosecco, etc.) -->
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="2 pinsa romane + Prosecco"
-                data-price="60"
-              />
-              2 Roman pinsa + Prosecco (€60)
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="2 box di sushi e sashimi + Prosecco"
-                data-price="80"
-              />
-              2 boxes of sushi & sashimi + Prosecco (€80)
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="1 pinsa + 1 box di sushi e Prosecco"
-                data-price="75"
-              />
-              1 pinsa + 1 sushi box + Prosecco (€75)
-            </label>
-          </div>
-          <!-- ... e così via, identico ai tuoi extras, solo testo in inglese se vuoi -->
-          <!-- Bottiglia di Prosecco 75cl => 75cl Prosecco Bottle, etc. -->
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="Bottiglia di Prosecco 75cl"
-                data-price="40"
-              />
-              75cl Prosecco Bottle (€40)
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="Bottiglia di Prosecco 20cl"
-                data-price="20"
-              />
-              20cl Prosecco Bottle (€20)
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="Bottiglia di Champagne 75cl"
-                data-price="110"
-              />
-              75cl Champagne Bottle (€110)
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="Bottiglia di Champagne 20cl"
-                data-price="30"
-              />
-              20cl Champagne Bottle (€30)
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="Spiedini di frutta fresca (spiedini)"
-                data-price="20"
-              />
-              Fresh fruit skewers (€20)
-            </label>
-          </div>
-          <div class="option">
-            <label>
-              <input
-                type="checkbox"
-                name="extras"
-                value="Spiedini di frutta fresca (piatto)"
-                data-price="30"
-              />
-              Fresh fruit platter (€30)
-            </label>
-          </div>
+          <label class="option">
+            <input type="checkbox" name="extras" value="2 pinsa romane + Prosecco" data-price="60" />
+            2 pinsa romane + Prosecco (€60)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="2 box di sushi e sashimi + Prosecco" data-price="80" />
+            2 box di sushi e sashimi + Prosecco (€80)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="1 pinsa + 1 box di sushi e Prosecco" data-price="75" />
+            1 pinsa + 1 box di sushi e Prosecco (€75)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="Bottiglia di Prosecco 75cl" data-price="40" />
+            Bottiglia di Prosecco 75cl (€40)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="Bottiglia di Prosecco 20cl" data-price="20" />
+            Bottiglia di Prosecco 20cl (€20)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="Bottiglia di Champagne 75cl" data-price="110" />
+            Bottiglia di Champagne 75cl (€110)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="Bottiglia di Champagne 20cl" data-price="30" />
+            Bottiglia di Champagne 20cl (€30)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="Spiedini di frutta fresca (spiedini)" data-price="20" />
+            Spiedini di frutta fresca (20€)
+          </label>
+          <label class="option">
+            <input type="checkbox" name="extras" value="Spiedini di frutta fresca (piatto)" data-price="30" />
+            Piatto di frutta fresca (30€)
+          </label>
         </div>
         <div class="navigation-buttons">
-          <button type="button" onclick="showPreviousStep(6)">Back</button>
-          <button type="button" onclick="showNextStep(6)">Next</button>
+          <button type="button" onclick="showPreviousStep(6)">Indietro</button>
+          <button type="button" onclick="showNextStep(6)">Avanti</button>
         </div>
       </div>
-
-      <!-- STEP 7: Confirm and Send -->
+      
+      <!-- STEP 7: Conferma e Richiesta Preventivo -->
       <div class="step" id="step-7">
         <div class="step-header">
-          <h2>7. Confirm and Send Request</h2>
+          <h2>7. Conferma e Richiesta Preventivo</h2>
         </div>
         <div class="section">
-          <label for="email" style="font-weight:bold; font-size:0.9rem;">Email *</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Your Email"
-            required
-            style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--input-border-color); margin-bottom:10px; font-size:0.9rem;"
-          />
-
-          <label for="phone" style="font-weight:bold; font-size:0.9rem;">Phone *</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            placeholder="Your Phone"
-            required
-            pattern="^[0-9]{10,15}$"
-            style="width:100%; padding:8px; border-radius:5px; border:1px solid var(--input-border-color); margin-bottom:10px; font-size:0.9rem;"
-          />
-
+          <label for="email" style="font-weight:bold;">Email *</label>
+          <input type="email" name="email" id="email" placeholder="La tua Email" required style="width:100%; margin-bottom:10px; box-sizing:border-box;" />
+          <label for="phone" style="font-weight:bold;">Telefono *</label>
+          <input type="tel" name="phone" id="phone" placeholder="Il tuo Telefono" required pattern="^[0-9]{10,15}$" style="width:100%; margin-bottom:10px; box-sizing:border-box;" />
           <input type="hidden" name="total" id="total" />
         </div>
-        <!-- Loading overlay -->
         <div id="loadingOverlay" class="loading-overlay">
           <div class="spinner"></div>
         </div>
         <div class="navigation-buttons">
-          <button type="button" onclick="showPreviousStep(7)">Back</button>
-          <button type="submit">Submit Request</button>
+          <button type="button" onclick="showPreviousStep(7)">Indietro</button>
+          <button type="submit">Richiedi Conferma</button>
         </div>
       </div>
     </form>
-
-    <!-- Hidden iframe for submission -->
     <iframe name="hiddenFrame" style="display:none;" onload="onFormLoad()"></iframe>
-
-    <!-- Confirmation Modal -->
     <div id="confirmationModal" class="modal">
       <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
-        <h2>Request Sent!</h2>
-        <p>Thank you! Your request has been successfully sent.</p>
-        <button onclick="closeModal()">Close</button>
+        <h2>Richiesta Inviata!</h2>
+        <p>Grazie! La tua richiesta è stata inviata con successo.</p>
+        <button onclick="closeModal()">Chiudi</button>
       </div>
     </div>
   </div>
-
   <script>
     let currentStep = 1;
     const totalSteps = 7;
-
     function showStep(step) {
       for (let i = 1; i <= totalSteps; i++) {
-        const stepElement = document.getElementById('step-' + i);
+        const stepElement = document.getElementById("step-" + i);
         if (i === step) {
-          stepElement.classList.add('active');
+          stepElement.classList.add("active");
         } else {
-          stepElement.classList.remove('active');
+          stepElement.classList.remove("active");
         }
       }
     }
-
     function showNextStep(step) {
-      if(!validateStep(step)) return;
-      if(step < totalSteps) {
+      if (!validateStep(step)) return;
+      if (step < totalSteps) {
         currentStep = step + 1;
         showStep(currentStep);
         updateTotal();
-        // step 5 => generate mini slots
-        if(currentStep === 5) {
+        if (currentStep === 5) {
           generateTimeSlots();
         }
       }
     }
-
     function showPreviousStep(step) {
-      if(step > 1) {
+      if (step > 1) {
         currentStep = step - 1;
         showStep(currentStep);
       }
     }
-
-    // Validation for mandatory radio in steps 1,2,4,5
     function validateStep(step) {
       let valid = true;
-      const stepEl = document.getElementById('step-' + step);
-
-      if(step === 1 || step === 2 || step === 4 || step === 5) {
-        if(step === 5) {
+      const stepEl = document.getElementById("step-" + step);
+      if (step === 1 || step === 2 || step === 4 || step === 5) {
+        if (step === 5) {
           const checkedSlot = stepEl.querySelectorAll('input[name="timeSlot"]:checked');
-          if(checkedSlot.length === 0) {
-            alert("Please select a time slot.");
+          if (checkedSlot.length === 0) {
+            alert("Per favore, seleziona un orario.");
             valid = false;
           }
         } else {
           const checkedRadio = stepEl.querySelectorAll('input[type="radio"]:checked');
-          if(checkedRadio.length === 0) {
-            alert("Please complete all required choices.");
+          if (checkedRadio.length === 0) {
+            alert("Per favore, completa tutte le scelte obbligatorie.");
             valid = false;
           }
         }
       }
-
-      // Step 7 => phone validation (already required by pattern)
-      if(step === 7) {
-        const phoneVal = document.getElementById('phone').value.trim();
+      if (step === 7) {
+        const phoneVal = document.getElementById("phone").value.trim();
         const phonePattern = /^[0-9]{10,15}$/;
-        if(!phonePattern.test(phoneVal)) {
-          alert("Please enter a valid phone number (10-15 digits).");
+        if (!phonePattern.test(phoneVal)) {
+          alert("Per favore, inserisci un numero di telefono valido (10-15 cifre).");
           valid = false;
         }
       }
-
       return valid;
     }
-
     function updateTotal() {
       let totalPrice = 0;
-
-      const spaSelected = document.querySelector('input[name="spa"]:checked');
-      const timeSelected = document.querySelector('input[name="time"]:checked');
-      const durationSelected = document.querySelector('input[name="duration"]:checked');
-      const timeSlotSelected = document.querySelector('input[name="timeSlot"]:checked');
-      const persons = parseInt(document.getElementById('selectedPersons').value) || 2;
-
-      // Price map with MORNING, AFTERNOON, NIGHT
+      const spa = document.querySelector('input[name="spa"]:checked');
+      const time = document.querySelector('input[name="time"]:checked');
+      const duration = document.querySelector('input[name="duration"]:checked');
+      const timeSlot = document.querySelector('input[name="timeSlot"]:checked');
+      const persons = parseInt(document.getElementById("selectedPersons").value) || 2;
       const spaPrices = {
         "SPA MAYA": {
-          "MORNING (07:00-16:00)": {
-            "1h": 180, "1.30h": 240, "2h": 300, "2.30h": 350
-          },
-          "AFTERNOON (16:00-23:00)": {
-            "1h": 230, "1.30h": 300, "2h": 360, "2.30h": 410
-          },
-          "NIGHT (23:00-07:00)": {
-            "1h": 290, "1.30h": 380, "2h": 440, "2.30h": 490
-          }
+          "MATTINA (07:00-16:00)": { "1h": 180, "1.30h": 240, "2h": 300, "2.30h": 350 },
+          "SERA (16:00-23:00)": { "1h": 230, "1.30h": 300, "2h": 360, "2.30h": 410 },
+          "NOTTE (23:00-07:00)": { "1h": 290, "1.30h": 380, "2h": 440, "2.30h": 490 }
         },
         "SPA MOON": {
-          "MORNING (07:00-16:00)": {
-            "1h": 140, "1.30h": 200, "2h": 240, "2.30h": 290
-          },
-          "AFTERNOON (16:00-23:00)": {
-            "1h": 190, "1.30h": 250, "2h": 300, "2.30h": 350
-          },
-          "NIGHT (23:00-07:00)": {
-            "1h": 220, "1.30h": 300, "2h": 350, "2.30h": 400
-          }
+          "MATTINA (07:00-16:00)": { "1h": 140, "1.30h": 200, "2h": 240, "2.30h": 290 },
+          "SERA (16:00-23:00)": { "1h": 190, "1.30h": 250, "2h": 300, "2.30h": 350 },
+          "NOTTE (23:00-07:00)": { "1h": 220, "1.30h": 300, "2h": 350, "2.30h": 400 }
         },
         "SPA DOMUS": {
-          "MORNING (07:00-16:00)": {
-            "1h": 110, "1.30h": 160, "2h": 200, "2.30h": 250
-          },
-          "AFTERNOON (16:00-23:00)": {
-            "1h": 160, "1.30h": 210, "2h": 260, "2.30h": 310
-          },
-          "NIGHT (23:00-07:00)": {
-            "1h": 190, "1.30h": 250, "2h": 310, "2.30h": 350
-          }
+          "MATTINA (07:00-16:00)": { "1h": 110, "1.30h": 160, "2h": 200, "2.30h": 250 },
+          "SERA (16:00-23:00)": { "1h": 160, "1.30h": 210, "2h": 260, "2.30h": 310 },
+          "NOTTE (23:00-07:00)": { "1h": 190, "1.30h": 250, "2h": 310, "2.30h": 350 }
         }
       };
-
-      const additionalPersonPrice = {
-        "1h": 40, "1.30h": 50, "2h": 60, "2.30h": 70
-      };
-
-      if(spaSelected && timeSelected && durationSelected && timeSlotSelected) {
-        totalPrice += spaPrices[spaSelected.value][timeSelected.value][durationSelected.value] || 0;
+      const additionalPersonPrice = { "1h": 40, "1.30h": 50, "2h": 60, "2.30h": 70 };
+      if (spa && time && duration && timeSlot) {
+        totalPrice += spaPrices[spa.value][time.value][duration.value] || 0;
       }
-      if(persons > 2 && durationSelected) {
-        totalPrice += (persons - 2) * (additionalPersonPrice[durationSelected.value] || 0);
+      if (persons > 2 && duration) {
+        totalPrice += (persons - 2) * (additionalPersonPrice[duration.value] || 0);
       }
-
-      // Extras
-      const checkedExtras = document.querySelectorAll('input[name="extras"]:checked');
-      checkedExtras.forEach(chk => {
+      const extras = document.querySelectorAll('input[name="extras"]:checked');
+      extras.forEach(chk => {
         totalPrice += parseFloat(chk.dataset.price) || 0;
       });
-
       document.getElementById("totalPrice").textContent = totalPrice.toFixed(2);
       document.getElementById("total").value = totalPrice.toFixed(2);
     }
-
-    // Person selection
     const personBtns = document.querySelectorAll(".person-button");
     personBtns.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -796,12 +529,9 @@
         updateTotal();
       });
     });
-
-    // Radio / Checkbox changes
-    const radioButtons = document.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach(r => {
+    const radios = document.querySelectorAll('input[type="radio"]');
+    radios.forEach(r => {
       r.addEventListener("change", () => {
-        // if step >=5, reset to step 5, regen slots
         if(currentStep >= 5) {
           currentStep = 5;
           showStep(currentStep);
@@ -810,16 +540,13 @@
         updateTotal();
       });
     });
-    const checkboxes = document.querySelectorAll('input[type="checkbox"][name="extras"]');
-    checkboxes.forEach(chk => {
+    const extraCheckboxes = document.querySelectorAll('input[type="checkbox"][name="extras"]');
+    extraCheckboxes.forEach(chk => {
       chk.addEventListener("change", updateTotal);
     });
-
-    // On form submit => show overlay
-    document.getElementById("wellnessFormEng").addEventListener("submit", function(e){
+    document.getElementById("wellnessForm").addEventListener("submit", function(e){
       showLoading();
     });
-
     function showLoading(){
       document.getElementById("loadingOverlay").style.display = "flex";
     }
@@ -842,88 +569,71 @@
         modal.style.display = "none";
       }
     };
-
-    // Generate mini time slots
     function generateTimeSlots(){
-      const timeSel = document.querySelector('input[name="time"]:checked');
-      const durSel  = document.querySelector('input[name="duration"]:checked');
+      const time = document.querySelector('input[name="time"]:checked');
+      const duration = document.querySelector('input[name="duration"]:checked');
       const container = document.getElementById("timeSlotsContainer");
       container.innerHTML = "";
-
-      if(!timeSel || !durSel) return;
-
-      const timeVal = timeSel.value;       // e.g. "MORNING (07:00-16:00)"
-      const durationVal = durSel.value;    // "1h", "2h", etc.
-
+      if(!time || !duration) return;
       let slots = [];
-      if(timeVal.startsWith("MORNING")) {
-        if(durationVal==="1h") {
-          slots = ["07-08", "08-09", "10-11", "12-13", "14-15"];
-        } else if(durationVal==="1.30h") {
-          slots = ["07-08.30","08-09.30","10-11.30","12-13.30","14-15.30"];
-        } else if(durationVal==="2h") {
-          slots = ["07-09","08-10","10-12","12-14","14-16"];
-        } else if(durationVal==="2.30h") {
-          slots = ["07-09.30","08-10.30","10-12.30","12-14.30","13.30-16"];
+      if(time.value.startsWith("MATTINA")){
+        if(duration.value==="1h"){
+          slots = ["7-8", "8-9", "10-11", "12-13", "14-15"];
+        } else if(duration.value==="1.30h"){
+          slots = ["7-8.30","8-9.30","10-11.30","12-13.30","14-15.30"];
+        } else if(duration.value==="2h"){
+          slots = ["7-9","8-10","10-12","12-14","14-16"];
+        } else if(duration.value==="2.30h"){
+          slots = ["7-9.30","8-10.30","10-12.30","12-14.30","13.30-16"];
         }
-      } else if(timeVal.startsWith("AFTERNOON")) {
-        if(durationVal==="1h") {
+      } else if(time.value.startsWith("SERA")){
+        if(duration.value==="1h"){
           slots = ["16-17","17-18","19-20","20-21","21-22","22-23"];
-        } else if(durationVal==="1.30h") {
+        } else if(duration.value==="1.30h"){
           slots = ["16-17.30","17-18.30","19-20.30","20-21.30","21-22.30"];
-        } else if(durationVal==="2h") {
+        } else if(duration.value==="2h"){
           slots = ["16-18","17-19","19-21","20-22","21-23"];
-        } else if(durationVal==="2.30h") {
+        } else if(duration.value==="2.30h"){
           slots = ["16-18.30","17-19.30","19-21.30","20-22.30"];
         }
-      } else if(timeVal.startsWith("NIGHT")) {
-        if(durationVal==="1h") {
+      } else if(time.value.startsWith("NOTTE")){
+        if(duration.value==="1h"){
           slots = ["23-24","00-01","01-02","02-03","03-04","04-05","05-06","06-07"];
-        } else if(durationVal==="1.30h") {
+        } else if(duration.value==="1.30h"){
           slots = ["23-00.30","00-01.30","01-02.30","02-03.30","03-04.30","04-05.30","05-06.30"];
-        } else if(durationVal==="2h") {
+        } else if(duration.value==="2h"){
           slots = ["23-01","00-02","01-03","02-04","03-05","04-06","05-07"];
-        } else if(durationVal==="2.30h") {
+        } else if(duration.value==="2.30h"){
           slots = ["23-01.30","00-02.30","01-03.30","02-04.30","03-05.30","04-06.30"];
         }
       }
-
-      slots.forEach(s => {
+      slots.forEach(slot => {
         const optDiv = document.createElement("div");
         optDiv.classList.add("option");
-
         const label = document.createElement("label");
         const input = document.createElement("input");
         input.type = "radio";
         input.name = "timeSlot";
-        input.value = s;
+        input.value = slot;
         input.required = true;
-        // remove '.' for ID
-        input.id = "time-slot-" + s.replace('.', '');
-
+        input.id = "time-slot-" + slot.replace('.', '');
         label.setAttribute("for", input.id);
         label.appendChild(input);
-        label.appendChild(document.createTextNode(" " + formatSlot(s)));
-
+        label.appendChild(document.createTextNode(" " + formatSlot(slot)));
         optDiv.appendChild(label);
         container.appendChild(optDiv);
       });
-
       const newRadios = container.querySelectorAll('input[name="timeSlot"]');
-      newRadios.forEach(r => {
-        r.addEventListener("change", updateTotal);
+      newRadios.forEach(radio => {
+        radio.addEventListener("change", updateTotal);
       });
     }
-
     function formatSlot(slot){
-      const [start,end] = slot.split("-");
+      const [start, end] = slot.split("-");
       const parseTime = t => {
-        const [h,m] = t.split(".");
-        if(!m) {
-          return padZero(parseInt(h,10)) + ":00";
-        } else {
-          return padZero(parseInt(h,10)) + ":" + m.padStart(2,'0');
-        }
+        const [h, m] = t.split(".");
+        if(!m) return padZero(parseInt(h,10)) + ":00";
+        return padZero(parseInt(h,10)) + ":" + m.padStart(2,"0");
       };
       return parseTime(start) + " - " + parseTime(end);
     }
